@@ -1,5 +1,7 @@
+version: 2026.232.0520
 plugin-agentteams:
     candy:
+        version: 2026.224.0600
         description: |-
             The `charly agentteams` management CLI for the AgentTeams controller
             REST API PLUS the declarative `agentteams:` check verb — a COMPILED-IN
