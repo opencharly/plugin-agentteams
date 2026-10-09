@@ -7,7 +7,7 @@
 // process with native stdio/TTY. The verb provider dispatches via Invoke with the
 // full #Op as params_json (the mcp pattern): it resolves the controller's in-venue
 // :8090 to a host-routable address over the reverse channel, pulls the admin SA
-// token from the venue, and probes with the SAME apiClient the command uses (R3 —
+// token from the venue, and probes with the SAME apiClient the command uses (R2 —
 // one REST surface covers the CLI and every bed). Usable COMPILED-IN
 // (NewProvider()/NewMeta() via plugins_generated.go) OR served OUT-OF-PROCESS by
 // the cmd/serve shim — both placements run the SAME runCommand / runVerbAgentTeams
@@ -114,7 +114,7 @@ func (p *provider) RunVerb(ctx context.Context, cc spec.CheckContext, op *spec.O
 // verbVerdict grades the verb's output against the authored op matchers
 // (exit_status / stdout / stderr) and returns the typed verdict — the SAME shared
 // pipeline the out-of-process path runs (sdk.VerbVerdict), converted from the wire
-// form to the typed spec.CheckVerbResult a compiled-in RunVerb returns (R3 — one
+// form to the typed spec.CheckVerbResult a compiled-in RunVerb returns (R2 — one
 // verdict pipeline, two return shapes). agentteams produces no artifact.
 func verbVerdict(method, out string, runErr error, op *spec.Op) spec.CheckVerbResult {
 	reply, err := sdk.VerbVerdict("agentteams", method, out, runErr, op, false)
@@ -170,7 +170,7 @@ type agentTeamsEnv struct {
 // live controller on a disposable `charly check box`), resolves the controller
 // over the reverse channel, dispatches the method, and self-evaluates the
 // matchers (the out-of-process verb path does NOT run the host-side matcher
-// pipeline — this Invoke OWNS the whole verdict, R3).
+// pipeline — this Invoke OWNS the whole verdict, R2).
 func invokeVerb(ctx context.Context, req *pb.InvokeRequest) (*pb.InvokeReply, error) {
 	var op spec.Op
 	if len(req.GetParamsJson()) > 0 {
@@ -200,7 +200,7 @@ func invokeVerb(ctx context.Context, req *pb.InvokeRequest) (*pb.InvokeReply, er
 
 	out, runErr := runVerbAgentTeams(ctx, cc, &op, in)
 
-	// The shared exit/stdout/stderr verdict pipeline (R3). agentteams produces no
+	// The shared exit/stdout/stderr verdict pipeline (R2). agentteams produces no
 	// artifact.
 	return sdk.VerbVerdict("agentteams", method, out, runErr, &op, false)
 }

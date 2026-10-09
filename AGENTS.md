@@ -47,7 +47,7 @@ Canonical files:
 - Edit the `plugin-agentteams:` candy entity, the Go source, and
   `schema/agentteams.cue` **together** — the schema is the single source for the
   verb's `params/` struct.
-- The CLI and the check verb share ONE REST client (R3); change the client, not
+- The CLI and the check verb share ONE REST client (R2); change the client, not
   a copy, when the controller contract moves.
 - Keep the `agentteams-cli-skill:` entity in step with any command-tree change —
   it is the projected source for `/charly-agentteams:agentteams-cli`.

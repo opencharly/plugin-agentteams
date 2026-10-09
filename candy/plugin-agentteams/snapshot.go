@@ -23,7 +23,7 @@ import (
 // objects. The SAME cores serve the in-venue `charly agentteams snapshot`
 // command. The host-side `agentteams:` verb dispatches four methods and does
 // NOT carry snapshot/hydrate — the CLI is the only surface for those
-// methods (R3 — one surface, two placements).
+// methods (R2 — one surface, two placements).
 
 // AgentTeamsSnapshotCmd is the `charly agentteams snapshot` command — the
 // Replicator's in-venue tool. It runs against the controller the apiClient

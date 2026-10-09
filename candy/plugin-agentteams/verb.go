@@ -21,7 +21,7 @@ import (
 // substrate, a live ssh -L forward on the vm substrate — spec/checkhost
 // EndpointForVenue), pulls the admin SA token from the venue over the executor,
 // and probes the controller with the SAME apiClient the command plugin uses
-// (R3 — one REST surface covers the CLI and every bed). The verb's method +
+// (R2 — one REST surface covers the CLI and every bed). The verb's method +
 // method-exclusive modifiers ride the desugared plugin input (params.AgentTeamsInput —
 // the generated #AgentTeamsInput from schema/agentteams.cue), validated at
 // runtime against the served schema.
@@ -50,7 +50,7 @@ type managerListResp struct {
 
 // verbAgentTeamsClient is the verb's probe client: the SAME apiClient the
 // command plugin uses, constructed against the host-routable controller address
-// resolved by the reverse channel (R3 — one REST surface covers every bed).
+// resolved by the reverse channel (R2 — one REST surface covers every bed).
 type verbAgentTeamsClient struct {
 	apiClient
 }
@@ -219,7 +219,7 @@ func verbWorkerRunning(ctx context.Context, cc kit.CheckContext, client *verbAge
 // resolveMatrixRoom resolves a Matrix room alias on the homeserver's public
 // directory API (:6167 — the same port the bed's raw curl used). The alias is
 // URL-encoded (# → %23, : → %3A) exactly as the controller's own client sends
-// it. Reuses the apiClient's http client (R3).
+// it. Reuses the apiClient's http client (R2).
 func resolveMatrixRoom(ctx context.Context, cc kit.CheckContext, client *verbAgentTeamsClient, alias string) (string, error) {
 	addr, err := cc.ResolveEndpoint(ctx, 6167)
 	if err != nil {

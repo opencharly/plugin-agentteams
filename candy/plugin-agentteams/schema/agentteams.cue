@@ -17,7 +17,7 @@
 // (cc.ResolveEndpoint — a published port on the pod substrate, a live ssh -L
 // forward on the vm substrate), pulls the admin SA token from the venue
 // (/var/run/agentteams/cli-token) over the executor, and probes the controller
-// with the SAME apiClient the `charly agentteams` command plugin uses (R3 — one
+// with the SAME apiClient the `charly agentteams` command plugin uses (R2 — one
 // REST surface covers the CLI and every bed). Only the genuinely SHARED step
 // modifiers (timeout, the exit_status/stdout/stderr matchers, context, …) stay on
 // core #Op, read off the step Op by the provider.

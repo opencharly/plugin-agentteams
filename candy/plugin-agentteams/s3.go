@@ -23,7 +23,7 @@ import (
 // core serves the in-venue `charly agentteams snapshot` command (no `mc` needed
 // in the venue). The host-side `agentteams:` verb does not carry snapshot or
 // hydrate; the CLI is the only surface for them
-// methods (no `mc` on the host) — R3, one surface, two placements.
+// methods (no `mc` on the host) — R2, one surface, two placements.
 type s3Client struct {
 	endpoint string // e.g. http://127.0.0.1:9000
 	bucket   string
