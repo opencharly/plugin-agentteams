@@ -9,8 +9,7 @@ candy is scanned.
 
 Canonical files:
 
-- `candy/plugin-agentteams/charly.yml` — the `plugin-agentteams:` candy entity
-  and the embedded `agentteams-cli-skill:` skill entity.
+- `candy/plugin-agentteams/charly.yml` — the `plugin-agentteams:` candy entity.
 - `candy/plugin-agentteams/` — the Go source: `plugin.go`, `control.go` (the
   REST client + command tree), `verb.go`, `schema/agentteams.cue`,
   `params/cue_types_gen.go`, `cmd/serve/main.go`.
@@ -19,11 +18,6 @@ Canonical files:
 
 ## Load these skills first (R0)
 
-- `/charly-agentteams:agentteams-cli` — the compiled-in `charly agentteams` CLI
-  and the `agentteams:` check verb reference. Load before changing the command
-  tree or the verb.
-- `/charly-agentteams:agentteams` — the AgentTeams box composition, volumes,
-  ports, and deploy substrates the CLI targets.
 - `/charly-internals:plugin` — the plugin authoring reference: the `plugin:`
   block, the unified Provider model, the per-plugin CUE-schema contract. Load
   before touching the provider or schema.
@@ -49,8 +43,6 @@ Canonical files:
   verb's `params/` struct.
 - The CLI and the check verb share ONE REST client (R2); change the client, not
   a copy, when the controller contract moves.
-- Keep the `agentteams-cli-skill:` entity in step with any command-tree change —
-  it is the projected source for `/charly-agentteams:agentteams-cli`.
 
 ## Landing
 
