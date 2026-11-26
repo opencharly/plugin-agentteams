@@ -54,16 +54,11 @@ Author the check verb in a plan:
 - `candy/plugin-agentteams/` — the plugin module: `plugin.go`, `control.go`
   (the REST client + command tree), `verb.go`, `s3.go`, `snapshot.go`,
   `schema/agentteams.cue`, `params/cue_types_gen.go`, `cmd/serve/main.go`.
-- `candy/plugin-agentteams/charly.yml` — the `plugin-agentteams:` candy entity
-  and the embedded `agentteams-cli-skill:` skill entity.
+- `candy/plugin-agentteams/charly.yml` — the `plugin-agentteams:` candy entity.
 - `charly.yml` — the root project manifest (`discover: candy`).
 - `.github/workflows/tag-on-merge.yml` — CalVer tag + `CHANGELOG/` on merge.
 
 ## Related
 
-- Owning skill: `/charly-agentteams:agentteams-cli` (projected from the embedded
-  `agentteams-cli-skill:` entity).
-- `/charly-agentteams:agentteams` — the AgentTeams box: composition, volumes,
-  ports, both deploy substrates.
 - `/charly-internals:plugin` — the plugin/provider model.
 - [`opencharly/charly`](https://github.com/opencharly/charly) — the charly CLI.
