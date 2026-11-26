@@ -38,10 +38,3 @@ plugin-agentteams:
               context:
                 - build
               command: "true"
-agentteams-cli-skill:
-    skill:
-        name: agentteams-cli
-        family: agentteams
-        owner: plugin-agentteams
-        triggers:
-            - "`charly agentteams` controller management (workers / teams / humans) / the `verb:agentteams` check verb (`status`, `manager-running`, `worker-running`, `worker-list`) / hydrating a deployment with `charly agentteams apply -f`"
